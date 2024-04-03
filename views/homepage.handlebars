@@ -1,0 +1,8 @@
+{{#each suitcase}}
+<div>
+    <a class="content-list" href="/suitcase/{{id}}">
+        <h2>{{title}}</h2>
+        <h3>created by <span>{{user.username}}</span> on <span>{{format_date date}}</span></h3>
+    </a>
+</div>
+{{/each}}
