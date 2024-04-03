@@ -1,4 +1,4 @@
-# PackPal
+# The Social Suitcase 
 
 Still needed for MVC: 
 
