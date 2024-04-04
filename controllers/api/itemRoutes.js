@@ -1,8 +1,16 @@
 const router = require('express').Router();
-// const { Item } = require('../../models');
+const { Item } = require('../../models');
 
-// router.get('/', async (req, res) => {
-//     router.get('/', (req, res) => {
-//         res.send('Hello, World!');
-//     });
-// });
+
+
+
+// Put an item in my suitcase
+
+// My = logged in user
+
+// My suitcase = array value 0
+
+// Item = Item user selected
+
+
+// Logged in user goes in 
