@@ -3,8 +3,12 @@ const { Item_Location, Item, Location_User, Location, User_Item, User } = requir
 const confirmAuth = require('../utils/auth')
 
 router.get('/', async (req,res) => {
-    res.render('PLACEHOLDER');
-})
+    res.render('homepage');
+});
+
+router.get('/social-suitcase', async (req,res) => {
+    res.render('socialSuitcase');
+});
 
 
 router.get('/', confirmAuth, async (req, res) => {

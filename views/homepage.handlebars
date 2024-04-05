@@ -6,3 +6,33 @@
     </a>
 </div>
 {{/each}}
+
+
+
+{{!-- Homepage add item button --}}
+<div>
+    <form class="add-item-form">
+        <div class="item-select">
+            <label for"add-item">Search items:</label>
+            <input class="input-form" type="text" id="add-item" />
+
+            <div class="button-container">
+                <a href="#" id="add-item-button"><button class="standard-button">Add Item</button></a>
+            </div>
+        </div>
+    </form>
+</div>
+
+{{!-- Homepage delete item button --}}
+<div class="button-container">
+    <a href="#" id="delete-item-button"><button class="standard-button">Delete Item</button></a>
+</div>
+
+{{!-- Homepage go to other's social suitcase button --}}
+<div class="button-container">
+    <a href="/social-suitcase" id="view-social-suitcase"><button class="standard-button">View Other's Social
+            Suitcase</button></a>
+</div>
+
+
+<script src="./js/items.js"></script>
