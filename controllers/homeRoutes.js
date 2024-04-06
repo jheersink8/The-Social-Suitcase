@@ -2,11 +2,17 @@ const router = require('express').Router();
 const { Item_Location, Item, Location_User, Location, User_Item, User } = require('../models');
 const confirmAuth = require('../utils/auth')
 
-router.get('/', async (req,res) => {
+const itemValues = require('../models/values/itemValues')
+
+router.get('/itemValues', (req, res) => {
+    res.json(itemValues)
+});
+
+router.get('/', async (req, res) => {
     res.render('homepage');
 });
 
-router.get('/social-suitcase', async (req,res) => {
+router.get('/social-suitcase', async (req, res) => {
     res.render('socialSuitcase');
 });
 

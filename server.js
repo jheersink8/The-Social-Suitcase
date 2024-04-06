@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
+// New NPM tool awesomeplete
+const awesomeplete = require('awesomplete');
+
 // ---------------- Set timeout session ----------------
 const sess = {
     secret: 'Session cookie secrets',
@@ -53,3 +56,4 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
+module.exports = { awesomeplete }
