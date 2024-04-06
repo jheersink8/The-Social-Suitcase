@@ -21,7 +21,6 @@ const addItem = async (event) => {
                 body: JSON.stringify({ item_id, location_id }),
                 headers: { 'Content-Type': 'application/json', },
             });
-            console.log(response)
             if (response.ok) {
                 document.location.replace('/');
             } else {
@@ -32,9 +31,31 @@ const addItem = async (event) => {
 };
 
 
-const deleteItem = () => {
+const deleteItem = async (event) => {
+    if (event.target.getAttribute('data-item')) {
+        const item_id = event.target.getAttribute('data-item');
 
+        const response = await fetch('/api/deleteItem', {
+            method: 'DELETE',
+            body: JSON.stringify({ item_id }),
+            headers: { 'Content-Type': 'application/json', },
+        });
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Item already deleted!');
+        }
+    };
 };
 
+
+
+
+
+const buttons = document.querySelectorAll('.delete-item-button')
+buttons.forEach(function (button) {
+    button.addEventListener('click', deleteItem)
+});
+
+
 document.querySelector('.add-item-form').addEventListener('submit', addItem)
-document.querySelector("#delete-item-button").addEventListener('click', deleteItem);
