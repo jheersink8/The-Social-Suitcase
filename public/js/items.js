@@ -8,43 +8,54 @@ new Awesomplete(input, {
 // JS for contacting server and adding item to suitcase 
 const addItem = async (event) => {
     event.preventDefault();
-    const location_id = 1;
-    const item_id = 123;
 
-    if (item_id) {
-        const response = await fetch('/api/item/addLItem', {
-            method: 'POST',
-            // What goes here?
-            body: JSON.stringify({ item_id, location_id }),
-            headers: { 'Content-Type': 'application/json', },
-        });
-        console.log(response)
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Failed to add item!')
+    const itemSelected = document.querySelector('#get-items').value.trim();
+    const response = await fetch(`/api/item/id?item=${itemSelected}`);
+
+    if (response.ok) {
+        const item_id = await response.json();
+        const location_id = 1;
+        if (item_id && location_id) {
+            const response = await fetch('/api/addItem', {
+                method: 'POST',
+                body: JSON.stringify({ item_id, location_id }),
+                headers: { 'Content-Type': 'application/json', },
+            });
+            if (response.ok) {
+                document.location.replace('/');
+            } else {
+                alert('Item already in suitcase!')
+            }
         }
     }
 };
 
 
-// Route: /addLItem
-// "item_id": 6,
-// "location_id": 1
+const deleteItem = async (event) => {
+    if (event.target.getAttribute('data-item')) {
+        const item_id = event.target.getAttribute('data-item');
 
-// Route: /addUItem
-// "item_id": 6,
-// "user_id": logged_in user
-
-
-
-
-
-
-
-const deleteItem = () => {
-
+        const response = await fetch('/api/deleteItem', {
+            method: 'DELETE',
+            body: JSON.stringify({ item_id }),
+            headers: { 'Content-Type': 'application/json', },
+        });
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Item already deleted!');
+        }
+    };
 };
 
+
+
+
+
+const buttons = document.querySelectorAll('.delete-item-button')
+buttons.forEach(function (button) {
+    button.addEventListener('click', deleteItem)
+});
+
+
 document.querySelector('.add-item-form').addEventListener('submit', addItem)
-document.querySelector("#delete-item-button").addEventListener('click', deleteItem);

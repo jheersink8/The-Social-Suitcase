@@ -1,14 +1,9 @@
-// Import necessary modules 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// Create bridge table between user and location
+class Ternary extends Model { }
 
-class User_Location extends Model {}
-
-// Bridge table field definitions
-
-User_Location.init(
+Ternary.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -18,26 +13,46 @@ User_Location.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id',
             },
+            unique: false
+        },
+        item_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'item',
+                key: 'id',
+            },
+            unique: false
         },
         location_id: {
             type: DataTypes.INTEGER,
-            references: {
+            allowNull: false,
+             references: {
                 model: 'location',
                 key: 'id',
             },
+            unique: false
         },
+
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user_location',
+        modelName: 'ternary',
+        indexes: [
+            {
+                unique: true,
+                fields: ['user_id', 'location_id', 'item_id'],
+            },
+
+        ],
     }
 );
 
-module.exports = User_Location;
+module.exports = Ternary;

@@ -1,13 +1,9 @@
-{{#each suitcase}}
+{{#each items}}
 <div>
-    <a class="content-list" href="/suitcase/{{id}}">
-        <h2>{{title}}</h2>
-        <h3>created by <span>{{user.username}}</span> on <span>{{format_date date}}</span></h3>
-    </a>
+    {{item}} {{!-- Homepage delete item button --}}
+    <button class="delete-item-button" data-item="{{id}}">Delete Item</button>
 </div>
 {{/each}}
-
-
 
 {{!-- Homepage add item button --}}
 <div>
@@ -15,7 +11,7 @@
         <div class="item-select">
             <label for="add-item">Search items:</label>
 
-            <input class="awesomplete" id="get-items" data-minchars="1"/>
+            <input class="awesomplete" id="get-items" data-minchars="1" />
             <div class="button-container">
                 <a><button class="standard-button" id="add-item-button">Add Item</button></a>
             </div>
@@ -23,10 +19,7 @@
     </form>
 </div>
 
-{{!-- Homepage delete item button --}}
-<div class="button-container">
-    <a href="#" ><button class="standard-button" id="delete-item-button">Delete Item</button></a>
-</div>
+
 
 {{!-- Homepage go to other's social suitcase button --}}
 <div class="button-container">
