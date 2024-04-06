@@ -5,7 +5,6 @@ const { Ternary, User } = require('../../models');
 // Add item to standard suitcase
 router.post('/addItem', async (req, res) => {
     try {
-        console.log(req.body)
         const addItem = await Ternary.create({
             ...req.body,
             user_id: req.session.user_id,
@@ -20,7 +19,6 @@ router.post('/addItem', async (req, res) => {
 // Delete item from standard suitcase
 router.delete('/deleteItem', async (req, res) => {
     try {
-    console.log(req.body.item_id)
     const itemData = await Ternary.destroy({
         where: {
             user_id: req.session.user_id,

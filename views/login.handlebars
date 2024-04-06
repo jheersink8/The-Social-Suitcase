@@ -1,9 +1,10 @@
+{{!-- Login form --}}
 <div>
     <form class="login-form">
         <div class="input-fields">
             <div class="input-field">
-                {{!-- Username field --}}
-                <label for="username-login">Username:</label>
+                {{!--Email Address field --}}
+                <label for="username-login">Email:</label>
                 <input class="input-form" type="text" id="username" />
             </div>
 
@@ -20,7 +21,38 @@
     </form>
 </div>
 
+{{!-- Sign up form --}}
+<div>
+    <form class="signup-form">
+        <div class="input-fields">
+            <h2>Create an account below:</h2>
+            <div class="input-field">
+                {{!-- Enter first name field --}}
+                <label for="first-name">First Name:</label>
+                <input class="input-form" type="text" id="firstName" />
+            </div>
+            <div class="input-field">
+                {{!-- Enter last name field --}}
+                <label for="last-name">Last Name:</label>
+                <input class="input-form" type="text" id="lastName" />
+            </div>
+            <div class="input-field">
+                {{!-- Create username field --}}
+                <label for="username-create">Email:</label>
+                <input class="input-form" type="text" id="enterEmail" />
+            </div>
 
-<h2 class="signup">Not a "Read Tech Today!" member yet? <a class="signup signup-link" href="/signup">Sign up here!</a></h2>
+            <div class="input-field">
+                {{!-- Create password field --}}
+                <label for="password-create">Password:</label>
+                <input class="input-form" type="password" id="createPassword" />
+            </div>
+        </div>
+        <div class="button-container">
+            {{!-- Create button --}}
+            <a href="/"><button class="standard-button" type="submit">Create Account</button></a>
+        </div>
+    </form>
+</div>
 
 <script src="/js/login.js"></script>
