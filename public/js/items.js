@@ -5,9 +5,36 @@ new Awesomplete(input, {
     list: itemValues
 });
 
-const deleteBtn = document.getElementById("delete-item-button");
+// JS for contacting server and adding item to suitcase 
+const addItem = async (event) => {
+    event.preventDefault();
+    const location_id = 1;
+    const item_id = 123;
+
+    if (item_id) {
+        const response = await fetch('/api/item/addLItem', {
+            method: 'POST',
+            // What goes here?
+            body: JSON.stringify({ item_id, location_id }),
+            headers: { 'Content-Type': 'application/json', },
+        });
+        console.log(response)
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to add item!')
+        }
+    }
+};
 
 
+// Route: /addLItem
+// "item_id": 6,
+// "location_id": 1
+
+// Route: /addUItem
+// "item_id": 6,
+// "user_id": logged_in user
 
 
 
@@ -16,9 +43,8 @@ const deleteBtn = document.getElementById("delete-item-button");
 
 
 const deleteItem = () => {
-    
+
 };
 
-
-
-deleteBtn.addEventListener("click", deleteItem);
+document.querySelector('.add-item-form').addEventListener('submit', addItem)
+document.querySelector("#delete-item-button").addEventListener('click', deleteItem);

@@ -4,6 +4,7 @@ const { Item_Location, User_Item } = require('../../models');
 
 // Add my item to a specific user
 router.post('/addUItem', async (req, res) => {
+
     try {
         const addItem = await User_Item.create({
             ...req.body,
@@ -19,15 +20,16 @@ router.post('/addUItem', async (req, res) => {
 // Add my item to a specific location
 // TO DO: Define location from JS.  
 router.post('/addLItem', async (req, res) => {
-    try {
+
+    // try {
         const addItem = await Item_Location.create({
             ...req.body,
         });
-
+        console.log(addItem);
         res.status(200).json(addItem);
-    } catch (err) {
+    // } catch (err) {
         res.status(400).json(err);
-    }
+    // }
 });
 
 // Delte an item from a user

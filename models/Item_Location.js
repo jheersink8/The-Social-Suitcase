@@ -12,23 +12,26 @@ Item_Location.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true,
             autoIncrement: true,
         },
         item_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'item',
                 key: 'id',
             },
+            unique: false
         },
         location_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'location',
                 key: 'id',
             },
+            unique: false
         },
     },
     {

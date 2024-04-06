@@ -4,10 +4,6 @@ const confirmAuth = require('../utils/auth')
 
 const itemValues = require('../models/values/itemValues')
 
-router.get('/itemValues', (req, res) => {
-    res.json(itemValues)
-});
-
 router.get('/', async (req, res) => {
     res.render('homepage');
 });
