@@ -11,12 +11,12 @@ class User extends Model {
 // User table field definitions (ID, first name, last name, email, and password)
 User.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-        },
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     primaryKey: true,
+        //     autoIncrement: true,
+        // },
         first_name: {
             type: DataTypes.STRING(30),
             allowNull: false,

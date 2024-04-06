@@ -8,14 +8,14 @@ new Awesomplete(input, {
 // JS for contacting server and adding item to suitcase 
 const addItem = async (event) => {
     event.preventDefault();
-    const location_id = 1;
-    const item_id = 123;
 
+    const item_id = 117;
+    const location_id = 1;
     if (item_id) {
-        const response = await fetch('/api/item/addLItem', {
+        const response = await fetch('/api/addItem', {
             method: 'POST',
             // What goes here?
-            body: JSON.stringify({ item_id, location_id }),
+            body: JSON.stringify({ item_id, location_id, user_id }),
             headers: { 'Content-Type': 'application/json', },
         });
         console.log(response)
