@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Social Suitcase</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+
+
+  {{!-- AWESOMPLETE CDN CSS FILE --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.css"
+    integrity="sha512-JcmylNmvdZJ8UcYcSDFWhvE6DwI8bKcnPKvBlwU2w/aRJ6qiZErv1Ixq99ykZgy3cCSp+QJp9su5buNLQjytng=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{!-- VANILLA CSS FILE --}}
+  <link rel="stylesheet" href="/css/style.css">
+  {{!-- AWESOMPLETE JS CDN FILE --}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.js"
+    integrity="sha512-t3zV/oAkSZUrvb/7p1q1+uh/i56JinQ+bmiulnHhbHZc7dq09CxJ1BByyi7A4+lF76+CcJtSVFtb7na7Oe7Cgg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1 class="blog-name">The Social Suitcase!</h1>
+      <ul class="nav-list">
+
+        <div class="dynamic-title-group">
+          <!-- CODE OUT DYNAMIC TITLE -->
+          <li class="dynamic-title">Welcome!</li>
+        </div>
+
+        <div class="navlink-div">
+          <ul class="navlink-group">
+            <li><a class="navlink" href="/">| My Suitcase |</a></li>
+            <li><a class="navlink" href="/social-suitcase">| The Social Suitcase |</a></li>
+            <!-- CODE OUT LOGIN/LOGOUT BUTTONS -->
+            {{#if logged_in}}
+            <li><a class="navlink" href="/login" id="logout">| Logout |</a></li>
+            {{else}}
+            <li><a class="navlink" href="/login">| Login |</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+    <h4 class="footer-block">©Tech Blog Today!</h4>
+    <h5 class="footer-block">2024</h5>
+  </footer>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+
+</body>
+
+</html>

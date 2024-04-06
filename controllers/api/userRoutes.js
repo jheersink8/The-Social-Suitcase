@@ -5,6 +5,7 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
+        console.log(req.body);
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -19,19 +20,19 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
 
     try {
-        const userData = await User.findOne({ where: { username: req.body.username } });
-        // If bad username
+        const userData = await User.findOne({ where: { email: req.body.email } });
+        // If bad email
         if (!userData) {
-            res.status(400).json({ message: "Username and password don't match. Please try again." });
+            res.status(400).json({ message: "email and password don't match. Please try again." });
             return;
         }
         const validPassword = await userData.checkPassword(req.body.password);
         // If bad password
         if (!validPassword) {
-            res.status(400).json({ message: "Username and password don't match. Please try again." });
+            res.status(400).json({ message: "email and password don't match. Please try again." });
             return;
         }
-        // If good username/password combo
+        // If good email/password combo
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
