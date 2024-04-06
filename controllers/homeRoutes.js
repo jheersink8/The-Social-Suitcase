@@ -35,5 +35,15 @@ router.get('/', confirmAuth, async (req, res) => {
     };
 });
 
+// Route for login nav link (if not already logged in)
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('login');
+});
+
 
 module.exports = router;

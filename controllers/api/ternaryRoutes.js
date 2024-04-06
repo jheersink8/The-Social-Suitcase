@@ -3,7 +3,7 @@ const { Ternary, User } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 // Add item to standard suitcase
-router.post('/addItem',   async (req, res) => {
+router.post('/addItem',  async (req, res) => {
     try {
     console.log( req.body )
     const addItem = await Ternary.create({
@@ -18,6 +18,7 @@ router.post('/addItem',   async (req, res) => {
 
 
 // Delete item from standard suitcase
+
 
 
 

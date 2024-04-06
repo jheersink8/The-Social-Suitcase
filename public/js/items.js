@@ -9,37 +9,27 @@ new Awesomplete(input, {
 const addItem = async (event) => {
     event.preventDefault();
 
-    const item_id = 117;
-    const location_id = 1;
-    if (item_id) {
-        const response = await fetch('/api/addItem', {
-            method: 'POST',
-            // What goes here?
-            body: JSON.stringify({ item_id, location_id, user_id }),
-            headers: { 'Content-Type': 'application/json', },
-        });
-        console.log(response)
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Failed to add item!')
+    const itemSelected = document.querySelector('#get-items').value.trim();
+    const response = await fetch(`/api/item/id?item=${itemSelected}`);
+
+    if (response.ok) {
+        const item_id = await response.json();
+        const location_id = 1;
+        if (item_id && location_id) {
+            const response = await fetch('/api/addItem', {
+                method: 'POST',
+                body: JSON.stringify({ item_id, location_id }),
+                headers: { 'Content-Type': 'application/json', },
+            });
+            console.log(response)
+            if (response.ok) {
+                document.location.replace('/');
+            } else {
+                alert('Item already in suitcase!')
+            }
         }
     }
 };
-
-
-// Route: /addLItem
-// "item_id": 6,
-// "location_id": 1
-
-// Route: /addUItem
-// "item_id": 6,
-// "user_id": logged_in user
-
-
-
-
-
 
 
 const deleteItem = () => {

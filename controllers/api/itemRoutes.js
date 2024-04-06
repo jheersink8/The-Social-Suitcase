@@ -1,48 +1,20 @@
 const router = require('express').Router();
-const { Item_Location, User_Item } = require('../../models');
+const { Item } = require('../../models');
 
-
-// Add my item to a specific user
-router.post('/addUItem', async (req, res) => {
-
+// Look up an item's id number
+router.get('/id', async (req, res) => {
     try {
-        const addItem = await User_Item.create({
-            ...req.body,
-            user_id: req.session.user_id,
+        const item = req.query.item;
+        const findItem = await Item.findOne({
+            where: { item: item }
         });
-
-        res.status(200).json(addItem);
+        res.status(200).json(findItem.id);
+        return findItem.id;
     } catch (err) {
-        res.status(400).json(err);
-    }
+        res.status(500).json({ err: "This item is not available to add. Please only select items from the auto-complete list." });
+    };
 });
 
-// Add my item to a specific location
-// TO DO: Define location from JS.  
-router.post('/addLItem', async (req, res) => {
-
-    // try {
-        const addItem = await Item_Location.create({
-            ...req.body,
-        });
-        console.log(addItem);
-        res.status(200).json(addItem);
-    // } catch (err) {
-        res.status(400).json(err);
-    // }
-});
-
-// Delte an item from a user
-// router.delete('/deleteUItem', async (req, res) => {
-
-//     try { } catch (err) { }
-// })
-
-
-// --------------------------------
-// Include Item_Location, User_Item in production
-
-// --------------------------------
 module.exports = router;
 
 
