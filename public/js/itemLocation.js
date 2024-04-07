@@ -13,15 +13,16 @@ const addItem = async (event) => {
     const response = await fetch(`/api/item/id?item=${itemSelected}`);
     if (response.ok) {
         const item_id = await response.json();
-        const location_id = 1;
-        if (item_id && location_id) {
-            const response = await fetch('/api/addItem', {
+        const location_id = document.querySelector('.location-personal-header').getAttribute('data-location');
+
+        if (item_id) {
+            const response = await fetch(`/api/addItem/${location_id}`, {
                 method: 'POST',
-                body: JSON.stringify({ item_id, location_id }),
+                body: JSON.stringify({ item_id }),
                 headers: { 'Content-Type': 'application/json', },
             });
             if (response.ok) {
-                document.location.replace('/');
+                document.location.replace(`/location/${location_id}`);
             } else {
                 alert('Item already in suitcase!')
             }
@@ -31,26 +32,27 @@ const addItem = async (event) => {
     }
 };
 
+// JS for contacting server and deleting an item from a specific location 
 const deleteItem = async (event) => {
     if (event.target.getAttribute('data-item')) {
         const item_id = event.target.getAttribute('data-item');
-
-        const response = await fetch('/api/deleteItem', {
+        const location_id = document.querySelector('.location-personal-header').getAttribute('data-location');
+        const response = await fetch(`/api/deleteItem/${location_id}`, {
             method: 'DELETE',
             body: JSON.stringify({ item_id }),
             headers: { 'Content-Type': 'application/json', },
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(`/location/${location_id}`);
         } else {
             alert('Item already deleted!');
         }
     };
 };
 
-const buttons = document.querySelectorAll('.delete-item-button')
+const buttons = document.querySelectorAll('.delete-itemLocation-button')
 buttons.forEach(function (button) {
     button.addEventListener('click', deleteItem)
 });
 
-document.querySelector('.add-item-form').addEventListener('submit', addItem)
+document.querySelector('.add-itemLocation-form').addEventListener('submit', addItem)

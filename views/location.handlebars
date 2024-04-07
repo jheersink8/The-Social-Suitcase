@@ -1,0 +1,32 @@
+<h2 class="location-personal-header" data-location="{{location.id}}">Your Suitecase for {{location.country_state}}</h2>
+
+{{#each items}}
+<div>
+    {{item}} {{!-- Location specific delete item button --}}
+    <button class="delete-itemLocation-button" data-item="{{id}}">Delete Item</button>
+</div>
+{{/each}}
+
+{{!-- Location specific add item button --}}
+<div>
+    <form class="add-itemLocation-form">
+        <div class="item-select">
+            <label for="add-item">Search items:</label>
+
+            <input class="awesomplete" id="get-items" data-minchars="1" />
+            <div class="button-container">
+                <a><button class="standard-button" id="add-item-button">Add Item</button></a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{{!-- Homepage go to other's social suitcase button --}}
+{{!-- <div class="button-container">
+    <a href="/social-suitcase" id="view-social-suitcase"><button class="standard-button">View Other's Social
+            Suitcase for this Location</button></a>
+</div> --}}
+
+<script src="/js/itemLocation.js" type="module"></script>

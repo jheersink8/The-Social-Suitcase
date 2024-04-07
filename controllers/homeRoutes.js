@@ -89,7 +89,7 @@ router.get('/', withAuth, async (req, res) => {
         const items = itemData.map((item) => item.get({ plain: true }))
 
         const locationData = await Location.findAll({
-                 include: [
+            include: [
                 {
                     model: Ternary,
 
@@ -98,11 +98,11 @@ router.get('/', withAuth, async (req, res) => {
                     }
                 },
             ],
-            
+
             order: [[{ model: Ternary }, 'id', 'ASC']]
         });
         const locations = locationData.map((location) => location.get({ plain: true }))
- 
+
         res.render('homepage', {
             items,
             locations,
@@ -119,8 +119,44 @@ router.get('/login', (req, res) => {
         res.redirect('/');
         return;
     }
-
     res.render('login');
+});
+
+// Route for location specific page
+router.get('/location/:id', withAuth, async (req, res) => {
+    try {
+        const itemData = await Item.findAll({
+
+            include: [
+                {
+                    model: Ternary,
+
+                    where: {
+                        location_id: req.params.id,
+                        user_id: req.session.user_id
+                    }
+                },
+
+            ],
+            order: [[{ model: Ternary }, 'id', 'ASC']]
+        });
+
+        const locationData = await Location.findByPk(req.params.id, {
+
+        });
+
+        const items = itemData.map((item) => item.get({ plain: true }))
+        const location = locationData.get({ plain: true });
+
+
+        res.render('location', {
+            items,
+            location,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    };
 });
 
 module.exports = router;
