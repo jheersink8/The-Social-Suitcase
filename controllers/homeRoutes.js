@@ -89,6 +89,7 @@ router.get('/', withAuth, async (req, res) => {
                     }
                 },
             ],
+            order: [[{ model: Ternary }, 'id', 'ASC']]
         });
         const items = itemData.map((item) => item.get({ plain: true }))
 

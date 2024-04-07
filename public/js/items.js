@@ -30,6 +30,8 @@ const addItem = async (event) => {
     }
 };
 
+
+// JS for contacting server and deleting item from suitcase
 const deleteItem = async (event) => {
     if (event.target.getAttribute('data-item')) {
         const item_id = event.target.getAttribute('data-item');
@@ -47,9 +49,10 @@ const deleteItem = async (event) => {
     };
 };
 
-const buttons = document.querySelectorAll('.delete-item-button')
-buttons.forEach(function (button) {
-    button.addEventListener('click', deleteItem)
-});
 
-document.querySelector('.add-item-form').addEventListener('submit', addItem)
+document.querySelector('.add-item-form').addEventListener('submit', addItem);
+
+const deleteButtons = document.querySelectorAll('.delete-item-button')
+deleteButtons.forEach(function (deletebutton) {
+    deletebutton.addEventListener('click', deleteItem)
+});
