@@ -13,63 +13,95 @@
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
     rel="stylesheet">
 
-
   {{!-- AWESOMPLETE CDN CSS FILE --}}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.css"
     integrity="sha512-JcmylNmvdZJ8UcYcSDFWhvE6DwI8bKcnPKvBlwU2w/aRJ6qiZErv1Ixq99ykZgy3cCSp+QJp9su5buNLQjytng=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   {{!-- BOOTSTRAP --}}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   {{!-- VANILLA CSS FILE --}}
-    <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   {{!-- AWESOMPLETE JS CDN FILE --}}
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.js"
     integrity="sha512-t3zV/oAkSZUrvb/7p1q1+uh/i56JinQ+bmiulnHhbHZc7dq09CxJ1BByyi7A4+lF76+CcJtSVFtb7na7Oe7Cgg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 </head>
 
 <body>
   <header>
-    <nav>
-      <h1 class="blog-name">The Social Suitcase!</h1>
-      <ul class="nav-list">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        {{!-- Site Name --}}
+        <a class="navbar-brand">The Social Suitcase</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="dynamic-title-group">
-          <!-- CODE OUT DYNAMIC TITLE -->
-          <li class="dynamic-title">Welcome!</li>
-        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto">
 
-        <div class="navlink-div">
-          <ul class="navlink-group">
-            <li><a class="navlink" href="/">| My Suitcase |</a></li>
-            <li><a class="navlink" href="/social-suitcase">| The Social Suitcase |</a></li>
-            <!-- CODE OUT LOGIN/LOGOUT BUTTONS -->
+            {{!-- My Suitcase Link --}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">My Suitcase</a>
+            </li>
+
+            {{!-- BUILD OUT PAGE --}}
+            {{!-- My Locations Link --}}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">My Locations</a>
+            </li>
+
+            {{!-- Social Suitcase Link --}}
+            <li class="nav-item">
+              <a class="nav-link active" href="/social-suitcase">The Social Suitcase</a>
+            </li>
+
+            {{!-- Logic for log in/log out option on nav bar --}}
             {{#if logged_in}}
-            <li><a class="navlink" href="/login" id="logout">| Logout |</a></li>
+            <li class="nav-item"> <a class="nav-link active" href="/login" id="logout">Log Out</a> </li>
             {{else}}
-            <li><a class="navlink" href="/login">| Login |</a></li>
+            <li class="nav-item"> <a class="nav-link active" href="/login"> Log In</a> </li>
             {{/if}}
+
           </ul>
         </div>
-      </ul>
+      </div>
     </nav>
+
+
+
+
   </header>
 
   <main>
     {{{body}}}
   </main>
 
-  <footer>
-    <h4 class="footer-block">©The Social Suitcase</h4>
-    <h5 class="footer-block">2024</h5>
+  <footer
+    class="footer mt-auto py-3 d-flex flex-wrap justify-content-between align-items-center py-3 border-top bg-dark border-bottom border-body fixed-bottom"
+    data-bs-theme="dark">
+    <p class="col-md-4 mb-0 mx-2 text-body-secondary">© 2024 Bootcamp Neatish Group, Inc</p>
+
+    <a
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      The Social Suitcase
+    </a>
+
+
   </footer>
 
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,19 +1,21 @@
+<h2 class="display-4 mx-3">Items in Your Personal Suitcase</h2>
+
 {{#each items}}
-<div>
-    {{item}} {{!-- Homepage delete item button --}}
-    <button class="delete-item-button" data-item="{{id}}">Delete Item</button>
+<div class="row mx-5 my-2">
+    <div class="col-1">{{item}} </div>{{!-- Homepage delete item button --}}
+    <button class="delete-item-button btn btn-danger col-1" data-item="{{id}}">Delete Item</button>
 </div>
 {{/each}}
 
 {{!-- Homepage add item button --}}
 <div>
-    <form class="add-item-form">
+    <form class="add-item-form mx-5">
         <div class="item-select">
             <label for="add-item">Search items:</label>
 
             <input class="awesomplete" id="get-items" data-minchars="1" />
             <div class="button-container">
-                <a><button class="standard-button" id="add-item-button">Add Item</button></a>
+                <a><button class="standard-button btn btn-success" id="add-item-button ">Add Item</button></a>
             </div>
         </div>
     </form>
