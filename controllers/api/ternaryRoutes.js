@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Ternary, User } = require('../../models');
+const { Ternary } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Add item to standard suitcase
