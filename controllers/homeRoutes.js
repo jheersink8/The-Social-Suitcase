@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { Item, Location, User, Ternary } = require('../models');
 const withAuth = require('../utils/auth')
 
+// Sort all the items by popularity in the social suitcase and render them
 router.get('/social-suitcase', withAuth, async (req, res) => {
     // Get all items with location = 1 (i.e. the personal suitcase) and put them in an array
     const countItems = await Item.findAll({
@@ -61,20 +62,14 @@ router.get('/social-suitcase', withAuth, async (req, res) => {
     // Sort those values from most popular to least popular and put in an object
     const items = combinedArray.sort((a, b) => b.count - a.count);
 
-
-
-
-    // const items = itemData.map((item) => item.get({ plain: true }))
-    // console.log(items)
-
+    // Render to page
     res.render('socialSuitcase', {
         items,
-        loggedin_in: req.session.logged_in
+        logged_in: req.session.logged_in
     });
 });
 
-
-
+// Render personal suitcase for user 
 router.get('/', withAuth, async (req, res) => {
     try {
         const itemData = await Item.findAll({
@@ -93,8 +88,24 @@ router.get('/', withAuth, async (req, res) => {
         });
         const items = itemData.map((item) => item.get({ plain: true }))
 
+        const locationData = await Location.findAll({
+                 include: [
+                {
+                    model: Ternary,
+
+                    where: {
+                        user_id: req.session.user_id
+                    }
+                },
+            ],
+            
+            order: [[{ model: Ternary }, 'id', 'ASC']]
+        });
+        const locations = locationData.map((location) => location.get({ plain: true }))
+ 
         res.render('homepage', {
             items,
+            locations,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -111,6 +122,5 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
-
 
 module.exports = router;

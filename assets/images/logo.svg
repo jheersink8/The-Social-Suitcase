@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f7f7f7" />
+
+  <!-- Suitcases -->
+  <circle cx="80" cy="60" r="20" fill="#0074d9" />
+  <circle cx="120" cy="60" r="20" fill="#ff4136" />
+  <circle cx="100" cy="100" r="20" fill="#2ecc40" />
+  <circle cx="80" cy="140" r="20" fill="#ff851b" />
+  <circle cx="120" cy="140" r="20" fill="#b10dc9" />
+
+  <!-- Connecting lines -->
+  <line x1="80" y1="60" x2="120" y2="60" stroke="#555" stroke-width="2" />
+  <line x1="80" y1="60" x2="100" y2="100" stroke="#555" stroke-width="2" />
+  <line x1="120" y1="60" x2="100" y2="100" stroke="#555" stroke-width="2" />
+  <line x1="80" y1="140" x2="100" y2="100" stroke="#555" stroke-width="2" />
+  <line x1="120" y1="140" x2="100" y2="100" stroke="#555" stroke-width="2" />
+
+  <!-- Text: The Social Suitcase -->
+  <text x="100" y="160" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">
+    The Social Suitcase
+  </text>
+</svg>
