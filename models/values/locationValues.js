@@ -1,5 +1,5 @@
 const locationValues = [
-    // Location 0 is user's standard suitcase 
+    // Location 1 is user's standard suitcase 
     "My Suitcase",
     // States
     "Alabama",

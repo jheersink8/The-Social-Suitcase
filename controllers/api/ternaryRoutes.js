@@ -15,6 +15,19 @@ router.post('/addItem', withAuth, async (req, res) => {
     }
 });
 
+// Add location to standard suitcase
+router.post('/addLocation', withAuth, async (req, res) => {
+    try {
+        const addLocation = await Ternary.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        })
+        res.status(200).json(addLocation);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 
 // Delete item from standard suitcase
 router.delete('/deleteItem', withAuth, async (req, res) => {
@@ -31,6 +44,25 @@ router.delete('/deleteItem', withAuth, async (req, res) => {
         res.status(404).json({ message: 'This item is not in your list!' });
     }
     res.status(200).json(itemData)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
+// Delete location from standard suitcase profile
+router.delete('/deleteLocation', withAuth, async (req, res) => {
+    try {
+    const locationData = await Ternary.destroy({
+        where: {
+            user_id: req.session.user_id,
+            location_id: req.body.location_id
+        },
+    });
+
+    if (!locationData) {
+        res.status(404).json({ message: 'This location is not in your list!' });
+    }
+    res.status(200).json(locationData)
     } catch (err) {
         res.status(500).json(err);
     }

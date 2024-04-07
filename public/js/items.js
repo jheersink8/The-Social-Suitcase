@@ -27,11 +27,11 @@ const addItem = async (event) => {
                 alert('Item already in suitcase!')
             }
         }
+    } else {
+        alert('This item is not available to add. Please only select items from the auto-complete list.')
     }
 };
 
-
-// JS for contacting server and deleting item from suitcase
 const deleteItem = async (event) => {
     if (event.target.getAttribute('data-item')) {
         const item_id = event.target.getAttribute('data-item');
@@ -49,10 +49,9 @@ const deleteItem = async (event) => {
     };
 };
 
-
-document.querySelector('.add-item-form').addEventListener('submit', addItem);
-
-const deleteButtons = document.querySelectorAll('.delete-item-button')
-deleteButtons.forEach(function (deletebutton) {
-    deletebutton.addEventListener('click', deleteItem)
+const buttons = document.querySelectorAll('.delete-item-button')
+buttons.forEach(function (button) {
+    button.addEventListener('click', deleteItem)
 });
+
+document.querySelector('.add-item-form').addEventListener('submit', addItem)

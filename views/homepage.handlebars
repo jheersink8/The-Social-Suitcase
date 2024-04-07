@@ -28,4 +28,29 @@
 </div>
 
 
+{{!-- Display saved locations --}}
+{{#each locations}}
+<div>
+    {{country_state}} {{!-- Homepage delete item button --}}
+    <button class="delete-location-button" data-location="{{id}}">Delete Location</button>
+</div>
+{{/each}}
+
+
+{{!-- Add location to profile --}}
+<div>
+    <form class="add-location-form">
+        <div class="location-select">
+            <label for="add-location">Search locations:</label>
+
+            <input class="awesomplete" id="get-locations" data-minchars="1" />
+            <div class="button-container">
+                <a><button class="standard-button" id="add-location-button">Add Location</button></a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 <script src="/js/items.js" type="module"></script>
+<script src="/js/locations.js" type="module"></script>
