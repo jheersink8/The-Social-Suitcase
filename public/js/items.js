@@ -30,7 +30,6 @@ const addItem = async (event) => {
     }
 };
 
-
 const deleteItem = async (event) => {
     if (event.target.getAttribute('data-item')) {
         const item_id = event.target.getAttribute('data-item');
@@ -48,14 +47,9 @@ const deleteItem = async (event) => {
     };
 };
 
-
-
-
-
 const buttons = document.querySelectorAll('.delete-item-button')
 buttons.forEach(function (button) {
     button.addEventListener('click', deleteItem)
 });
-
 
 document.querySelector('.add-item-form').addEventListener('submit', addItem)

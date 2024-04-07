@@ -1,4 +1,8 @@
 {{!-- Social Suitcase button to add item from social suitcase to personal suitcase --}}
-<div class="button-container">
-    <a href="#" id="add-item-button"><button class="standard-button">Add Item to My Suitcase</button></a>
+
+{{#each items}}
+<div>
+    {{count}}--{{item}}--{{!-- Social Suitcase add item button --}}
+    <button class="add-item-button" data-item="{{item_id}}">Add Item to My Suitcase</button>
 </div>
+{{/each}}
