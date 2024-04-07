@@ -31,7 +31,7 @@
 {{!-- Display saved locations --}}
 {{#each locations}}
 <div>
-    {{country_state}} {{!-- Homepage delete item button --}}
+    <a href="location/{{id}}">{{country_state}}</a> {{!-- Homepage delete item button --}}
     <button class="delete-location-button" data-location="{{id}}">Delete Location</button>
 </div>
 {{/each}}
