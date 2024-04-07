@@ -1,0 +1,26 @@
+<h2 class="location-social-header" data-location="{{location.id}}">Social Suitecase for {{location.country_state}}</h2>
+
+
+{{!-- List of items --}}
+{{#each items}}
+<div>
+
+    {{count}}--{{item}}--
+    {{!-- Social Suitcase add item to personal suitcase button --}}
+    <button class="add-personalLocation-item" data-item="{{item_id}}">Add Item to My Personal Suitcase</button>
+
+    {{!-- Social Suitcase add item to location suitcase button --}}
+    <button class="add-socialLocation-item" data-item="{{item_id}}" data-location="{{../location.id}}">Add Item to My
+        {{../location.country_state}} Suitcase</button>
+
+</div>
+{{/each}}
+
+{{!-- Go back to my location specific suitcase --}}
+<div class="button-container">
+    <a href="/location/{{location.id}}" id="view-location-suitcase"><button class="standard-button">Go Back to my
+            {{location.country_state}} Suitcase </button></a>
+</div>
+
+
+<script src="/js/itemSocialLocation.js" type="module"></script>
