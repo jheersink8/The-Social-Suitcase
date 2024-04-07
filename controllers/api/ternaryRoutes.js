@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Ternary, User } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // Add item to standard suitcase
-router.post('/addItem', async (req, res) => {
+router.post('/addItem', withAuth, async (req, res) => {
     try {
         const addItem = await Ternary.create({
             ...req.body,
@@ -17,7 +17,7 @@ router.post('/addItem', async (req, res) => {
 
 
 // Delete item from standard suitcase
-router.delete('/deleteItem', async (req, res) => {
+router.delete('/deleteItem', withAuth, async (req, res) => {
     try {
     const itemData = await Ternary.destroy({
         where: {
@@ -35,7 +35,5 @@ router.delete('/deleteItem', async (req, res) => {
         res.status(500).json(err);
     }
 })
-
-
 
 module.exports = router;

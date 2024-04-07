@@ -20,7 +20,6 @@ const loginForm = async (event) => {
     }
 };
 
-
 // Add email and password from signup form to database
 const signupForm = async (event) => {
     event.preventDefault();
@@ -43,7 +42,6 @@ const signupForm = async (event) => {
         }
     }
 };
-
 
 document.querySelector('.login-form').addEventListener('submit', loginForm);
 document.querySelector('.signup-form').addEventListener('submit', signupForm);
