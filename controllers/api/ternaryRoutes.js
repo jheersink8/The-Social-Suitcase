@@ -18,7 +18,6 @@ router.post('/addItem', withAuth, async (req, res) => {
 // Add item to location specific suitcase 
 router.post('/addItem/:id', withAuth, async (req, res) => {
     try {
-        console.log(req.body)
         const addItem = await Ternary.create({
             ...req.body,
             location_id: req.params.id,

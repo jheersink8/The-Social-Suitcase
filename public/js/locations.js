@@ -35,7 +35,6 @@ const addLocation = async (event) => {
 
 // JS for contacting server and deleting location from suitcase
 const deleteLocation = async (event) => {
-    console.log(event.target.getAttribute('data-location'));
     if (event.target.getAttribute('data-location')) {
         const location_id = event.target.getAttribute('data-location');
 

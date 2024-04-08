@@ -1,58 +1,116 @@
-{{!-- Login form --}}
-<div>
-    <form class="login-form">
-        <div class="input-fields">
-            <div class="input-field">
-                {{!--Email Address field --}}
-                <label for="username-login">Email:</label>
-                <input class="input-form" type="text" id="username" />
-            </div>
+<h2 class="location-social-header display-4 mx-3 mb-5 pb-5 text-center">Welcome to the Social Suitcase</h2>
+<div class="container">
+    {{!-- Login form --}}
+    <div class="row">
+        <div class="col-md-6">
+            <form class="login-form ">
+            
+                <h2 class="text-center">Sign In Here:</h2>
 
-            <div class="input-field">
-                {{!-- Password field --}}
-                <label for="password-login">Password:</label>
-                <input class="input-form" type="password" id="password" />
-            </div>
-        </div>
-        <div class="button-container">
-            {{!-- Submit button --}}
-            <a href="/"><button class="standard-button" type="submit">Login</button></a>
-        </div>
-    </form>
-</div>
+                <div class="input-fields container ">
+                    <div class="input-field row my-1">
+                        {{!--Email Address field --}}
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2 text-start">
+                            <label for="username-login">Email:</label>
+                        </div>
+                        <div class="col-md-7 text-start">
+                            <input class="input-form" type="text" id="username" />
+                        </div>
+                    </div>
 
-{{!-- Sign up form --}}
-<div>
-    <form class="signup-form">
-        <div class="input-fields">
-            <h2>Create an account below:</h2>
-            <div class="input-field">
-                {{!-- Enter first name field --}}
-                <label for="first-name">First Name:</label>
-                <input class="input-form" type="text" id="firstName" />
-            </div>
-            <div class="input-field">
-                {{!-- Enter last name field --}}
-                <label for="last-name">Last Name:</label>
-                <input class="input-form" type="text" id="lastName" />
-            </div>
-            <div class="input-field">
-                {{!-- Create username field --}}
-                <label for="username-create">Email:</label>
-                <input class="input-form" type="text" id="enterEmail" />
-            </div>
+                    <div class="input-field row my-1">
+                        {{!-- Password field --}}
+                        <div class="col-md-3"></div>
+                        <div class="col-md-2 text-start">
+                            <label for="password-login">Password:</label>
+                        </div>
+                        <div class="col-md-7 text-start">
+                            <input class="input-form" type="password" id="password" />
+                        </div>
+                    </div>
+                </div>
 
-            <div class="input-field">
-                {{!-- Create password field --}}
-                <label for="password-create">Password:</label>
-                <input class="input-form" type="password" id="createPassword" />
-            </div>
+
+                <div class="button-container my-4 mx-3 text-center">
+                    {{!-- Submit button --}}
+                    <a href="/"><button class="standard-button btn btn-primary" type="submit">Login</button></a>
+                </div>
+            </form>
         </div>
-        <div class="button-container">
-            {{!-- Create button --}}
-            <a href="/"><button class="standard-button" type="submit">Create Account</button></a>
+
+        {{!-- Sign up form --}}
+        <div class="col-md-6">
+            <form class="signup-form ">
+                <div class="input-fields">
+                    <h2 class="text-center">Create an account below:</h2>
+                    <div class="container">
+
+
+
+                        <div class="input-field row my-1">
+                            {{!-- Enter first name field --}}
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 text-start">
+                                <label for="first-name">First Name:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input class="input-form" type="text" id="firstName" />
+                            </div>
+                        </div>
+
+
+                        <div class="input-field row my-1">
+                            {{!-- Enter last name field --}}
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 text-start">
+                                <label for="last-name">Last Name:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input class="input-form" type="text" id="lastName" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="input-field row my-1">
+                            {{!-- Create username field --}}
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 text-start">
+                                <label for="username-create">Email:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input class="input-form" type="text" id="enterEmail" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="input-field row my-1">
+                            {{!-- Create password field --}}
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2 text-start">
+                                <label for="password-create">Password:</label>
+                            </div>
+                            <div class="col-md-7">
+                                <input class="input-form" type="password" id="createPassword" />
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="button-container my-4 mx-3 text-center">
+                    {{!-- Create button --}}
+                    <a href="/"><button class="standard-button btn btn-primary" type="submit">Create Account</button></a>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
 <script src="/js/login.js"></script>

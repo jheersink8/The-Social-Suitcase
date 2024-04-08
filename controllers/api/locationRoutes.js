@@ -4,7 +4,6 @@ const { Location } = require('../../models');
 // Look up a location's id number
 router.get('/id', async (req, res) => {
     try {
-    console.log(req.query.country_state)    
     const location = req.query.country_state;
         const findLocation = await Location.findOne({
             where: { country_state: location }
