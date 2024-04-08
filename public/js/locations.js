@@ -14,11 +14,11 @@ const addLocation = async (event) => {
 
     if (response.ok) {
         const location_id = await response.json();
-        const item_id = 1;
-        if (item_id && location_id) {
+        // const item_id = 1;
+        if (location_id) {
             const response = await fetch('/api/addLocation', {
                 method: 'POST',
-                body: JSON.stringify({ item_id, location_id }),
+                body: JSON.stringify({  location_id }),
                 headers: { 'Content-Type': 'application/json', },
             });
             if (response.ok) {
