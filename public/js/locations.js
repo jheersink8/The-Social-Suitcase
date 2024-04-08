@@ -22,7 +22,7 @@ const addLocation = async (event) => {
                 headers: { 'Content-Type': 'application/json', },
             });
             if (response.ok) {
-                document.location.replace('/');
+                document.location.replace('/my-locations');
             } else {
                 alert('Location already a part of your suitcase profile!')
             }
@@ -45,7 +45,7 @@ const deleteLocation = async (event) => {
             headers: { 'Content-Type': 'application/json', },
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/my-locations');
         } else {
             alert('Location already deleted!');
         }
