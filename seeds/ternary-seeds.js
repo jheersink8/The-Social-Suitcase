@@ -1,0 +1,62 @@
+const { Ternary } = require('../models');
+
+// Ternary Seed Data 
+const ternaryData = [
+    {"user_id": 7, "item_id": 5, "location_id": 1},
+    {"user_id": 7, "item_id": 1, "location_id": 1},
+    {"user_id": 7, "item_id": 53, "location_id": 1},
+    {"user_id": 7, "item_id": 67, "location_id": 1},
+    {"user_id": 7, "item_id": 22, "location_id": 1},
+    {"user_id": 7, "item_id": 29, "location_id": 1},
+    {"user_id": 9, "item_id": 6, "location_id": 1},
+    {"user_id": 9, "item_id": 22, "location_id": 1},
+    {"user_id": 9, "item_id": 165, "location_id": 1},
+    {"user_id": 9, "item_id": 42, "location_id": 1},
+    {"user_id": 4, "item_id": 1, "location_id": 93},
+    {"user_id": 4, "item_id": 50, "location_id": 93},
+    {"user_id": 4, "item_id": 17, "location_id": 93},
+    {"user_id": 4, "item_id": 51, "location_id": 93},
+    {"user_id": 4, "item_id": 7, "location_id": 93},
+    {"user_id": 2, "item_id": 1, "location_id": 93},
+    {"user_id": 2, "item_id": 50, "location_id": 93},
+    {"user_id": 2, "item_id": 7, "location_id": 93},
+    {"user_id": 1, "item_id": 1, "location_id": 93},
+    {"user_id": 1, "item_id": 7, "location_id": 93},
+    {"user_id": 1, "item_id": 50, "location_id": 93},
+    {"user_id": 1, "item_id": 67, "location_id": 93},
+    {"user_id": 18, "item_id": 1, "location_id": 7},
+    {"user_id": 18, "item_id": 22, "location_id": 1},
+    {"user_id": 18, "item_id": 73, "location_id": 1},
+    {"user_id": 18, "item_id": 53, "location_id": 1},
+    {"user_id": 18, "item_id": 7, "location_id": 1},
+    {"user_id": 18, "item_id": 40, "location_id": 1},
+    {"user_id": 18, "item_id": 1, "location_id": 52},
+    {"user_id": 18, "item_id": 1, "location_id": 239},
+    {"user_id": 18, "item_id": 7, "location_id": 52},
+    {"user_id": 18, "item_id": 54, "location_id": 52},
+    {"user_id": 18, "item_id": 17, "location_id": 52},
+    {"user_id": 18, "item_id": 29, "location_id": 52},
+    {"user_id": 18, "item_id": 1, "location_id": 12},
+    {"user_id": 18, "item_id": 7, "location_id": 12},
+    {"user_id": 18, "item_id": 1, "location_id": 83},
+    {"user_id": 18, "item_id": 57, "location_id": 83},
+    {"user_id": 18, "item_id": 7, "location_id": 83},
+    {"user_id": 18, "item_id": 42, "location_id": 1},
+    {"user_id": 18, "item_id": 29, "location_id": 1},
+    {"user_id": 6, "item_id": 7, "location_id": 1},
+    {"user_id": 6, "item_id": 17, "location_id": 1},
+    {"user_id": 6, "item_id": 44, "location_id": 1},
+    {"user_id": 6, "item_id": 31, "location_id": 1},
+    {"user_id": 6, "item_id": 27, "location_id": 1},
+    {"user_id": 6, "item_id": 1, "location_id": 1},
+    {"user_id": 6, "item_id": 1, "location_id": 7},
+    {"user_id": 6, "item_id": 140, "location_id": 7},
+    {"user_id": 6, "item_id": 1, "location_id": 83},
+    {"user_id": 6, "item_id": 57, "location_id": 1},
+    {"user_id": 6, "item_id": 57, "location_id": 83}
+  ]
+
+  
+const seedTernary = () => Ternary.bulkCreate(ternaryData);
+
+module.exports = seedTernary;

@@ -22,6 +22,7 @@ Ternary.init(
         },
         item_id: {
             type: DataTypes.INTEGER,
+            allowNull: true, 
             references: {
                 model: 'item',
                 key: 'id',
