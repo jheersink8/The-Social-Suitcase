@@ -1,57 +1,51 @@
-<h2 class="display-4 mx-3">Items in Your Personal Suitcase</h2>
+<h2 class="display-4 mx-3 pb-5 text-center">Items in Your Personal Suitcase</h2>
 
-{{#each items}}
-<div class="row mx-5 my-2">
-    <div class="col-1">{{item}} </div>{{!-- Homepage delete item button --}}
-    <button class="delete-item-button btn btn-danger col-1" data-item="{{id}}">Delete Item</button>
-</div>
-{{/each}}
+<div class="container">
+    {{!-- Homepage add item button --}}
+    <div class="row ">
+        {{!-- Homepage go to other's social suitcase button --}}
+        <div class="col-6">
+            <div class="button-container my-5">
+                <a href="/social-suitcase" id="view-social-suitcase"><button
+                        class="standard-button btn btn-primary">View
+                        Other's Suitcase Items</button></a>
+            </div>
 
-{{!-- Homepage add item button --}}
-<div>
-    <form class="add-item-form mx-5">
-        <div class="item-select">
-            <label for="add-item">Search items:</label>
-
-            <input class="awesomplete" id="get-items" data-minchars="1" />
-            <div class="button-container">
-                <a><button class="standard-button btn btn-success" id="add-item-button ">Add Item</button></a>
+            <div class="container">
+                <form class="add-item-form">
+                    <div class="item-select">
+                        <label class="row" for="add-item">Search items:</label>
+                        <div class="row">
+                            <div class="col-xxl-4 my-1">
+                                <input class="awesomplete p-1" id="get-items" data-minchars="1" />
+                            </div>
+                            <div class="button-container col-xxl-8 my-1">
+                                <a><button class="standard-button btn btn-success" id="add-item-button ">Add
+                                        Item</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
-</div>
 
-
-
-{{!-- Homepage go to other's social suitcase button --}}
-<div class="button-container">
-    <a href="/social-suitcase" id="view-social-suitcase"><button class="standard-button">View Other's Social
-            Suitcase</button></a>
-</div>
-
-
-{{!-- Display saved locations --}}
-{{#each locations}}
-<div>
-    <a href="location/{{id}}"><button>View {{country_state}} Suitcase</button></a> {{!-- Homepage delete item button --}}
-    <button class="delete-location-button" data-location="{{id}}">Delete Location</button>
-</div>
-{{/each}}
-
-
-{{!-- Add location to profile --}}
-<div>
-    <form class="add-location-form">
-        <div class="location-select">
-            <label for="add-location">Search locations:</label>
-
-            <input class="awesomplete" id="get-locations" data-minchars="1" />
-            <div class="button-container">
-                <a><button class="standard-button" id="add-location-button">Add Location</button></a>
+        <div class="col-md-5">
+            {{!-- Items List --}}
+            <div class="container">
+                {{#each items}}
+                <div class="row border border-0 rounded-1 m-1 p-1 bg-body-secondary text-black">
+                    <div class="col-md-6 my-1 fs-5">{{item}} </div>{{!-- Homepage delete item button --}}
+                    <button class="delete-item-button btn btn-danger col-md-4 my-1" data-item="{{id}}">Delete
+                        Item</button>
+                </div>
+                {{/each}}
             </div>
         </div>
-    </form>
+    </div>
 </div>
+
+
+
+
 
 <script src="/js/items.js" type="module"></script>
-<script src="/js/locations.js" type="module"></script>
