@@ -1,0 +1,52 @@
+<h2 class="display-4 mx-3 pb-5 text-center">Items in Your Personal Suitcase</h2>
+
+<div class="container">
+    {{!-- Add location to profile --}}
+    <div class="row">
+        <div class="col-6">
+            <div class="container">
+                <form class="add-location-form">
+                    <div class="location-select">
+                        <label for="add-location" class="row">Search locations:</label>
+                        <div class="row">
+                            <div class="col-xxl-4 my-1"><input class="awesomplete p-1" id="get-locations"
+                                    data-minchars="1" />
+                            </div>
+                            <div class="button-container col-xxl-8 my-1">
+                                <a><button class="standard-button btn btn-success" id="add-location-button">Add
+                                        Location</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="container">
+
+                {{!-- Display saved locations --}}
+                {{#each locations}}
+                <div class="row my-2">
+                    <div class="col-6 ">
+                        <a href="location/{{id}}">
+                            <div class="d-grid"><button class="btn btn-primary ">View <span
+                                        style="font-weight: bold;">{{country_state}}</span>
+                                    Suitcase</button></div>
+                        </a>
+                    </div> {{!-- Homepage delete
+                    item
+                    button
+                    --}}
+                    <div class="col-6">
+                        <button class="delete-location-button btn btn-danger" data-location="{{id}}">Delete
+                            Location</button>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/locations.js" type="module"></script>

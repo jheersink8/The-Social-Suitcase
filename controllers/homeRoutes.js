@@ -21,7 +21,7 @@ router.get('/', withAuth, async (req, res) => {
                     }
                 },
             ],
-            order: [[{ model: Ternary }, 'id', 'ASC']]
+            order: [[{ model: Ternary }, 'id', 'DESC']]
         });
         const items = itemData.map((item) => item.get({ plain: true }))
 
@@ -36,11 +36,56 @@ router.get('/', withAuth, async (req, res) => {
                 },
             ],
 
-            order: [[{ model: Ternary }, 'id', 'ASC']]
+            order: [[{ model: Ternary }, 'id', 'DESC']]
         });
         const locations = locationData.map((location) => location.get({ plain: true }))
 
         res.render('homepage', {
+            items,
+            locations,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+//#endregion
+// -------------- MY LOCATION ROUTES ------------------//
+//#region 
+router.get('/my-locations', withAuth, async (req, res) => {
+    try {
+        const itemData = await Item.findAll({
+
+            include: [
+                {
+                    model: Ternary,
+
+                    where: {
+                        location_id: 1,
+                        user_id: req.session.user_id
+                    }
+                },
+            ],
+            order: [[{ model: Ternary }, 'id', 'DESC']]
+        });
+        const items = itemData.map((item) => item.get({ plain: true }))
+
+        const locationData = await Location.findAll({
+            include: [
+                {
+                    model: Ternary,
+
+                    where: {
+                        user_id: req.session.user_id
+                    }
+                },
+            ],
+
+            order: [[{ model: Ternary }, 'id', 'DESC']]
+        });
+        const locations = locationData.map((location) => location.get({ plain: true }))
+
+        res.render('myLocations', {
             items,
             locations,
             logged_in: req.session.logged_in
@@ -148,7 +193,7 @@ router.get('/location/:id', withAuth, async (req, res) => {
                 },
 
             ],
-            order: [[{ model: Ternary }, 'id', 'ASC']]
+            order: [[{ model: Ternary }, 'id', 'DESC']]
         });
 
         const locationData = await Location.findByPk(req.params.id, {

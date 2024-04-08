@@ -1,10 +1,25 @@
 {{!-- Social Suitcase button to add item from social suitcase to personal suitcase --}}
+<h2 class="location-social-header display-4 mx-3 pb-5 text-center">Most Popular Suitcase Items</h2>
 
-{{#each items}}
-<div>
-    {{count}}--{{item}}--{{!-- Social Suitcase add item button --}}
-    <button class="add-social-item" data-item="{{item_id}}">Add Item to My Suitcase</button>
+
+
+<div class="container">
+    {{#each items}}
+    <div class="row d-flex justify-content-center align-items-center border border-0 rounded-1 m-1 p-1 bg-body-secondary
+        text-black">
+        <div class="col-md-3"></div>
+        {{!-- Message to end user about how many people packed the item --}}
+        <div class="col-md-4"> <span style="font-weight: bold;">
+                {{count}}</span>individual(s) packed this: <span style="font-weight: bold;">{{item}}</span></div>
+
+        {{!-- Social Suitcase add item button --}}
+        <div class="col-md-4"><button class="add-social-item btn btn-success" data-item="{{item_id}}">Add Item to My
+                Suitcase</button></div>
+        <div class="col-md-1"></div>
+    </div>
+    {{/each}}
+
+
 </div>
-{{/each}}
 
 <script src="/js/socialItems.js" type="module"></script>
