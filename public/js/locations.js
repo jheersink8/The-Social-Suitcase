@@ -14,21 +14,23 @@ const addLocation = async (event) => {
 
     if (response.ok) {
         const location_id = await response.json();
-        const item_id = 1;
-        if (item_id && location_id) {
+        // const item_id = 1;
+        if (location_id) {
             const response = await fetch('/api/addLocation', {
                 method: 'POST',
-                body: JSON.stringify({ item_id, location_id }),
+                body: JSON.stringify({ location_id }),
                 headers: { 'Content-Type': 'application/json', },
             });
             if (response.ok) {
                 document.location.replace('/my-locations');
             } else {
-                alert('Location already a part of your suitcase profile!')
+                existingLocation.createModal();
+                existingLocation.showModal();
             }
         }
     } else {
-        alert('This location is not available to add. Please only select locations from the auto-complete list.')
+        badLocation.createModal();
+        badLocation.showModal();
     }
 };
 

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Item, Location, User, Ternary } = require('../models');
-const { count } = require('../models/Item');
+const { Op } = require('sequelize');
 const withAuth = require('../utils/auth')
 
 // -------------- MY SUITCASE ROUTES ------------------//
@@ -76,6 +76,7 @@ router.get('/my-locations', withAuth, async (req, res) => {
                     model: Ternary,
 
                     where: {
+                        location_id: { [Op.not]: 1 },
                         user_id: req.session.user_id
                     }
                 },
