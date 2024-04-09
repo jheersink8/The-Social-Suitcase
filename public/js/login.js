@@ -15,7 +15,8 @@ const loginForm = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert(responseData.message);
+            badPW.createModal();
+            badPW.showModal();
         }
     }
 };
@@ -23,7 +24,7 @@ const loginForm = async (event) => {
 // Add email and password from signup form to database
 const signupForm = async (event) => {
     event.preventDefault();
-    const first_name = document.querySelector('#firstName').value.trim(); 
+    const first_name = document.querySelector('#firstName').value.trim();
     const last_name = document.querySelector('#lastName').value.trim();
     const email = document.querySelector('#enterEmail').value.trim();
     const password = document.querySelector('#createPassword').value.trim();
@@ -38,7 +39,8 @@ const signupForm = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert(responseData.message);
+            badAccount.createModal();
+            badAccount.showModal();
         }
     }
 };

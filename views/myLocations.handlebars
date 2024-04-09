@@ -1,4 +1,4 @@
-<h2 class="display-4 mx-3 pb-5 text-center">Items in Your Personal Suitcase</h2>
+<h2 class="display-4 mx-3 pb-5 text-center">Your Saved Locations</h2>
 
 <div class="container">
     {{!-- Add location to profile --}}
@@ -24,7 +24,6 @@
 
         <div class="col-md-6">
             <div class="container">
-
                 {{!-- Display saved locations --}}
                 {{#each locations}}
                 <div class="row my-2">
@@ -34,17 +33,17 @@
                                         style="font-weight: bold;">{{country_state}}</span>
                                     Suitcase</button></div>
                         </a>
-                    </div> {{!-- Homepage delete
-                    item
-                    button
-                    --}}
+                    </div>
+                    {{!-- Homepage delete item button --}}
                     <div class="col-6">
-                        <button class="delete-location-button btn btn-danger" data-location="{{id}}">Delete
+                        <button class="delete-location-button btn btn-danger" data-location="{{id}}"
+                            id="validate-display" {{{hide_button}}}>Delete
                             Location</button>
                     </div>
                 </div>
                 {{/each}}
             </div>
+
         </div>
     </div>
 </div>

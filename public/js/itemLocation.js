@@ -24,11 +24,13 @@ const addItem = async (event) => {
             if (response.ok) {
                 document.location.replace(`/location/${location_id}`);
             } else {
-                alert('Item already in suitcase!')
+                existingItem.createModal();
+                existingItem.showModal();
             }
         }
     } else {
-        alert('This item is not available to add. Please only select items from the auto-complete list.')
+        badItem.createModal();
+        badItem.showModal();
     }
 };
 
@@ -56,3 +58,5 @@ buttons.forEach(function (button) {
 });
 
 document.querySelector('.add-itemLocation-form').addEventListener('submit', addItem)
+
+

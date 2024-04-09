@@ -9,9 +9,12 @@ const addSocialItem = async (event) => {
             headers: { 'Content-Type': 'application/json', },
         });
         if (response.ok) {
-            alert('Item added to your suitcase!')
+            addItem.createModal();
+            addItem.showModal();
+
         } else {
-            alert('Item already in suitcase!')
+            existingItem.createModal();
+            existingItem.showModal();
         }
     }
 };
