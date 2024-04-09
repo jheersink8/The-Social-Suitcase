@@ -21,15 +21,6 @@ Location.init(
             values: locationValues,
             allowNull: false,
         },
-
-        // Future development possibility
-        // comment_id: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'comment',
-        //         key: 'id',
-        //     },
-        // }
     },
     {
         sequelize,

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Location } = require('../../models');
 
-// Look up a location's id number
+// Use this route to look up location's ID number based on the string value
 router.get('/id', async (req, res) => {
     try {
     const location = req.query.country_state;
@@ -14,9 +14,6 @@ router.get('/id', async (req, res) => {
         res.status(500).json({ err: "This location is not available to add. Please only select items from the auto-complete list." });
     };
 });
-
-
-
 
 module.exports = router;
 

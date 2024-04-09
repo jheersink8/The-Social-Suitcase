@@ -1,3 +1,4 @@
+// Defined values for all locations
 const locationValues = [
      // Location 1 is user's standard suitcase 
      "My Suitcase",

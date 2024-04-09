@@ -33,6 +33,7 @@ const addItem = async (event) => {
     }
 };
 
+// JS for contacting server and deleting item from suitcase 
 const deleteItem = async (event) => {
     if (event.target.getAttribute('data-item')) {
         const item_id = event.target.getAttribute('data-item');

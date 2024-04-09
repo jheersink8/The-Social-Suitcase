@@ -1,9 +1,4 @@
 /* Background image */
-:root{
-    --#{$prefix}modal-color: #{$modal-content-color};
-    --#{$prefix}backdrop-opacity: #{$modal-backdrop-opacity};
-}
-
 body {
     background-image: url('../images/logo-light.png');
     background-size: contain;
@@ -15,12 +10,14 @@ body {
     background-attachment: fixed;
 }
 
+/* This will create extra space at the bottom of the page to make it feel less "tight" */
 main {
     padding-bottom: 100px;
 }
 
+/* Modal background transparancy */
 .modal .modal-content {
-    background-color: rgba(33, 37, 41, 0.85) !important; 
+    background-color: rgba(33, 37, 41, 0.93) !important; 
 }
 
 

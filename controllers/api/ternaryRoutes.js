@@ -3,6 +3,7 @@ const { Ternary } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Add item to standard suitcase
+//#region 
 router.post('/addItem', withAuth, async (req, res) => {
     try {
         const addItem = await Ternary.create({
@@ -14,8 +15,10 @@ router.post('/addItem', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
+//#endregion
 
 // Add item to location specific suitcase 
+//#region 
 router.post('/addItem/:id', withAuth, async (req, res) => {
     try {
         const addItem = await Ternary.create({
@@ -28,8 +31,10 @@ router.post('/addItem/:id', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
+//#endregion
 
 // Add location to standard suitcase
+//#region 
 router.post('/addLocation', withAuth, async (req, res) => {
     try {
         const addLocation = await Ternary.create({
@@ -41,9 +46,10 @@ router.post('/addLocation', withAuth, async (req, res) => {
         res.status(400).json(err);
     }
 });
-
+//#endregion
 
 // Delete item from standard suitcase
+//#region 
 router.delete('/deleteItem', withAuth, async (req, res) => {
     try {
     const itemData = await Ternary.destroy({
@@ -61,9 +67,11 @@ router.delete('/deleteItem', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+//#endregion
 
 // Delete location from standard suitcase profile
+//#region 
 router.delete('/deleteLocation', withAuth, async (req, res) => {
     try {
     const locationData = await Ternary.destroy({
@@ -80,9 +88,11 @@ router.delete('/deleteLocation', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+//#endregion
 
 // Delete item from specific location's suitcase
+//#region 
 router.delete('/deleteItem/:id', withAuth, async (req, res) => {
     try {
     const itemData = await Ternary.destroy({
@@ -100,6 +110,7 @@ router.delete('/deleteItem/:id', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+//#endregion
 
 module.exports = router;
