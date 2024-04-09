@@ -1,3 +1,4 @@
+// Set up home routes and api routes 
 const router = require('express').Router();
 
 const homeRoutes = require('./homeRoutes');

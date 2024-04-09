@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Item } = require('../../models');
 
-// Look up an item's id number
+// Use this route to look up an item's ID number based on the string value
 router.get('/id', async (req, res) => {
     try {
         const item = req.query.item;

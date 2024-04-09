@@ -1,3 +1,4 @@
+// Defined values for all items
 const itemValues = [
     "Passport",
     "Driver's License",

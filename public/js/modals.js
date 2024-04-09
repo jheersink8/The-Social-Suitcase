@@ -32,23 +32,10 @@ function Modal(modalID, header, message) {
 }
 
 // Modal List:
-//Item not in list
-const badItem = new Modal ('badItemModal', 'Please Advise!', 'This item is not available to add. Please only select items from the auto-complete list.')
-
-// Item already in suitcase
-const existingItem = new Modal ('existingItemModal', 'Please Advise!', 'This item is already in your suitcase!');
-
-// Successfully added item
-const addItem = new Modal('addItemModal', 'Success!', 'Successfully added itme to your suitcase');
-
-// Location not available to add
-const badLocation = new Modal ('badLocationModal', 'Please Advise!', 'This location is not available to add. Please only select items from the auto-complete list.');
-
-// Location already in suitcase profile
-const existingLocation = new Modal ('existingLocationModal', 'Please Advise', 'This location is already in your suitcase profile!')
-
-//Username and password do not match 
-const badPW = new Modal('badPWModal', 'Please Advise!', 'Username and Password combination incorrect!');
-
-//Account already exists 
-const badAccount = new Modal ('badAccountModal', 'Please Advise!', 'An account with that email address already exists!')
+const badItem = new Modal ('badItemModal', 'Please Advise!', 'This item is not available to add. Please only select items from the auto-complete list.'); //Item not in list
+const existingItem = new Modal ('existingItemModal', 'Please Advise!', 'This item is already in your suitcase!'); // Item already in suitcase
+const addItem = new Modal('addItemModal', 'Success!', 'Successfully added itme to your suitcase'); // Successfully added item
+const badLocation = new Modal ('badLocationModal', 'Please Advise!', 'This location is not available to add. Please only select items from the auto-complete list.'); // Location not available to add
+const existingLocation = new Modal ('existingLocationModal', 'Please Advise', 'This location is already in your suitcase profile!'); // Location already in suitcase profile
+const badPW = new Modal('badPWModal', 'Please Advise!', 'Username and Password combination incorrect!'); //Username and password do not match 
+const badAccount = new Modal ('badAccountModal', 'Please Advise!', 'An account with that email address already exists!'); //Account already exists 

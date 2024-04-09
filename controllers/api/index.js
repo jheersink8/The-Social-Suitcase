@@ -1,4 +1,4 @@
-// Set up routes for user, location, and item
+// Set up /api routes for user, location, item, and ternary
 const router = require('express').Router();
 
 const userRoutes = require('./userRoutes');
